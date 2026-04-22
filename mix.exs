@@ -1,25 +1,41 @@
 defmodule Multicodec.MixProject do
   use Mix.Project
 
+  @version "0.1.0"
+  @source_url "https://github.com/tyler-eon/multicodec"
+
   def project do
     [
       app: :multicodec,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.18",
       description: "An Elixir implementation of the multicodec specification for self-describing codec identifiers.",
       package: package(),
-      deps: deps()
+      deps: deps(),
+      docs: docs(),
+      source_url: @source_url
     ]
   end
 
   def package do
     [
-      name: "multicodec",
+      name: "multicodec_ex",
       maintainers: ["Tyler Eon"],
-      licenses: ["MIT"],
+      licenses: ["MPL-2.0"],
       links: %{
-        "GitHub" => "https://github.com/tyler-eon/multicodec"
-      }
+        "GitHub" => @source_url
+      },
+      files: ~w(lib .formatter.exs mix.exs README.md LICENSE)
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      name: "Multicodec",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
+      extras: ["README.md", "LICENSE"]
     ]
   end
 
